@@ -127,8 +127,8 @@ def machine_learning(args,ml_group):
     #set PENALTY_TIME, we can set as 200, PAR10, or PARX
     PENALTY_TIME=int(cutoff)
 
-    np.random.seed(1)
-    random.seed(1)
+    np.random.seed(123)
+    random.seed(123)
 
     score_functions=[make_scorer(relative_score),make_scorer(max_relative_score),"neg_mean_squared_error"]
     # here choose "neg_mean_squared_error"

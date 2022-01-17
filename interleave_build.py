@@ -234,7 +234,7 @@ if __name__ == "__main__":
 
             interlsave='-'.join(interl)
             with open('evaluation/result.csv','a') as f:
-                f.write('interleaving_'+performance_folder_group+'_'+interlsave+','+str(round(s,2))+','+str(round(t,2))+'\n')
+                f.write('interleaving_'+performance_folder_group+'_'+interlsave+'_'+str(time)+','+str(round(s,2))+','+str(round(t,2))+'\n')
 
 
             #test on leave out set
@@ -252,7 +252,7 @@ if __name__ == "__main__":
 
             interlsave='-'.join(interl)
             with open('evaluation/result2.csv','a') as f:
-                f.write('interleaving_'+performance_folder_group+'_'+interlsave+','+str(round(s,2))+','+str(round(t,2))+'\n')
+                f.write('interleaving_'+performance_folder_group+'_'+interlsave+'_'+str(time)+','+str(round(s,2))+','+str(round(t,2))+'\n')
             #save result
             
             best=s,st,interl,time,performance_folder_group
@@ -285,7 +285,7 @@ if __name__ == "__main__":
 
                 interlsave='-'.join(interl)
                 with open('evaluation/result.csv','a') as f:
-                    f.write('interleaving_'+performance_folder_group+'_'+interlsave+','+str(round(s,2))+','+str(round(t,2))+'\n')
+                    f.write('interleaving_'+performance_folder_group+'_'+interlsave+'_'+str(time)+','+str(round(s,2))+','+str(round(t,2))+'\n')
 
 
                 #test on leave out set
@@ -303,7 +303,7 @@ if __name__ == "__main__":
 
                 interlsave='-'.join(interl)
                 with open('evaluation/result2.csv','a') as f:
-                    f.write('interleaving_'+performance_folder_group+'_'+interlsave+','+str(round(s,2))+','+str(round(t,2))+'\n')
+                    f.write('interleaving_'+performance_folder_group+'_'+interlsave+'_'+str(time)+','+str(round(s,2))+','+str(round(t,2))+'\n')
 
                 #save result
                 
@@ -340,7 +340,7 @@ if __name__ == "__main__":
 
                 interlsave='-'.join(interl)
                 with open('evaluation/result.csv','a') as f:
-                    f.write('interleaving_'+performance_folder_group+'_'+interlsave+','+str(round(s,2))+','+str(round(t,2))+'\n')
+                    f.write('interleaving_'+performance_folder_group+'_'+interlsave+'_'+str(time)+','+str(round(s,2))+','+str(round(t,2))+'\n')
 
 
                 #test on leave out set
@@ -360,7 +360,7 @@ if __name__ == "__main__":
 
                 interlsave='-'.join(interl)
                 with open('evaluation/result2.csv','a') as f:
-                    f.write('interleaving_'+performance_folder_group+'_'+interlsave+','+str(round(s,2))+','+str(round(t,2))+'\n')
+                    f.write('interleaving_'+performance_folder_group+'_'+interlsave+'_'+str(time)+','+str(round(s,2))+','+str(round(t,2))+'\n')
 
                 #save result
                 
