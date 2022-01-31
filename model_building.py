@@ -75,8 +75,8 @@ def max_relative_score(y_true, y_pred):
 				res.append((y_pred[i]-y_true[i])/(y_true[i]))
 		return -max(res)
 
-#print solved percentage and avg runtime
-def printSvdPercAvgTime(p,runtime,maxtime,printresult=True):
+#print solved percentage and avg solving only time
+def printSvdPercAvgTime2(p,runtime,maxtime,printresult=True):
 	#success
 	sucs=[]
 	for i in runtime:
@@ -89,6 +89,24 @@ def printSvdPercAvgTime(p,runtime,maxtime,printresult=True):
 	else:
 		if printresult:
 			print(p,float(0),"/",float(0))
+		return 0,0
+
+#print solved percentage and real avg runtime
+def printSvdPercAvgTime(p,runtime,maxtime,printresult=True):
+	#success
+	sucs=[]
+	time_real=[]
+	for i in runtime:
+		time_real.append(i)
+		if i<maxtime-1:
+			sucs.append(i)
+	if len(sucs)!=0:
+		if printresult:
+			print(p,float(len(sucs))/len(runtime),"/",float(sum(time_real))/len(runtime))
+		return float(len(sucs))/len(runtime), float(sum(time_real))/len(runtime)
+	else:
+		if printresult:
+			print(p,float(0),"/",float(maxtime))
 		return 0,0
 
 #split 80% trainset into validSet, trainSet with specified binNum and which bin.
@@ -579,7 +597,7 @@ if __name__ == "__main__":
         f.write('method,solving,time\n')    
 
     with open('evaluation/result2.csv','w') as f:
-        f.write('evaluation\n')
+        f.write('test\n')
 
     feature_folder=args.feature_folder[0]
     feature_groups=os.listdir(feature_folder)

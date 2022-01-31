@@ -12,7 +12,7 @@ def define_args(arg_parser):
 
 if __name__ == "__main__":
     print("------------------------------------------------")
-    print('\nEvaluating on test set...')
+    print('\nEvaluating on validation set...')
     parser = argparse.ArgumentParser()
     define_args(parser)
     args = parser.parse_args()
