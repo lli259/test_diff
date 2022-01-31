@@ -28,7 +28,7 @@ class interleave_class():
         sov=[i for i in input_list if i<cap_runtime ]
         if len(sov)==0:
             return 0,cap_runtime
-        return sov/leng,float(sum(sov))/len(sov)
+        return float(len(sov))/leng,float(sum(sov))/len(sov)
 
     #input: list of runtime, time_each,total_time
     #for example [10,3,13], 4, 20
