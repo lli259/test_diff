@@ -12,7 +12,7 @@ def define_args(arg_parser):
 
 if __name__ == "__main__":
     print("------------------------------------------------")
-    print('\nEvaluating on validation set...')
+    print('\nCollecting results on validation set...')
     parser = argparse.ArgumentParser()
     define_args(parser)
     args = parser.parse_args()
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     df=df.sort_values(by=['time'])
     print('\nBest Solution:',df.iloc[0]['method'])
     print('\n......................')
-    print('\nSolution evaluating on new instances...')
+    print('\nAll solutions evaluated on new instances...')
     with open('evaluation/result2.csv','r') as f:
         results=f.readlines()
     for l in results:

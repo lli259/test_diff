@@ -232,8 +232,19 @@ def machine_learning(args,ml_group):
     print("trainAll:",trainSetAll.shape)
     print("--trainSet:",trainSet.shape)
     print("--validSet:",validSet.shape)
-    print("testSet:",testSet.shape)
-    print("leaveSet:",leaveSet.shape)
+
+    
+    #printing names change
+    ## testSet print as Validation set
+    ## leaveSet print as Test set
+    
+    #but code does not change
+
+    #print("testSet:",testSet.shape)
+    #print("leaveSet:",leaveSet.shape)
+    print("Validation set:",testSet.shape)
+    print("Test set:",leaveSet.shape)
+
 
     trainSet.to_csv(ml_outfolder+"/trainSet.csv")
     validSet.to_csv(ml_outfolder+"/validSet.csv")
