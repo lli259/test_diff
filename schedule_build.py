@@ -20,8 +20,8 @@ def seq_two_time(t1,t2,t_given1,t_given2):
             return t_given1+t_given2
 
 
-
-def get_seq_diff_time(df,col_name1,col_name_2,t_given1,t_given2,cutoff):
+#avg time
+def get_seq_diff_time2(df,col_name1,col_name_2,t_given1,t_given2,cutoff):
     insts=df.index.values
     runtime_list=[]
     for ins_id in insts:
@@ -37,6 +37,26 @@ def get_seq_diff_time(df,col_name1,col_name_2,t_given1,t_given2,cutoff):
         total_time+=rt
     leng=float(len(runtime_list))
     return solved/leng,total_time/leng
+
+#solved only avg time
+def get_seq_diff_time(df,col_name1,col_name_2,t_given1,t_given2,cutoff):
+    insts=df.index.values
+    runtime_list=[]
+    for ins_id in insts:
+        t1=df.loc[ins_id,col_name1]
+        t2=df.loc[ins_id,col_name_2]
+        sq_t=seq_two_time(t1,t2,t_given1,t_given2)
+        runtime_list.append(sq_t)
+    solved=0
+    solved_time=0
+    for rt in runtime_list:
+        if rt<cutoff:
+            solved+=1
+            solved_time+=rt
+    leng=float(len(runtime_list))
+    if solved==0:
+        return 0,cutoff
+    return solved/leng,solved_time/solved
 
 def build(cutoff,df):
 
