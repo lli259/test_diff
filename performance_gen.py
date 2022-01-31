@@ -88,7 +88,7 @@ def run_instances_for_enc(encodings_folder,instances_names,instances_folder,out_
         f.write(str(cutoff_t))
 
 
-    concurrency = 4
+    concurrency = 1
     total_task_num = os.listdir(encodings_folder)
     sema = Semaphore(concurrency)
     all_processes = []
