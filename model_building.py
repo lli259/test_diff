@@ -76,7 +76,7 @@ def max_relative_score(y_true, y_pred):
 		return -max(res)
 
 #print solved percentage and avg solving only time
-def printSvdPercAvgTime2(p,runtime,maxtime,printresult=True):
+def printSvdPercAvgTime(p,runtime,maxtime,printresult=True):
 	#success
 	sucs=[]
 	for i in runtime:
@@ -92,7 +92,7 @@ def printSvdPercAvgTime2(p,runtime,maxtime,printresult=True):
 		return 0,0
 
 #print solved percentage and real avg runtime
-def printSvdPercAvgTime(p,runtime,maxtime,printresult=True):
+def printSvdPercAvgTime2(p,runtime,maxtime,printresult=True):
 	#success
 	sucs=[]
 	time_real=[]
@@ -479,7 +479,9 @@ def machine_learning(args,ml_group):
         #modelResults.to_csv(("resultAnalysis/validition_result_analysis_"+mName+".csv"))
         '''
     print("\n")
-    print("testSet")
+    #print("testSet")
+    #change name to Validation set, code name not change
+    print("Validation Set")  
     drawLine()
     print("Indivadual encoding and Oracle performance: ")
     for alg in runtimeIndex:

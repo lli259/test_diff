@@ -16,12 +16,19 @@ class interleave_class():
         pass
     #input list, cap_runtime
     #return solve percentage, avg time
-    def solve_perc_avg_time(self,input_list,cap_runtime):
+    def solve_perc_avg_time2(self,input_list,cap_runtime):
         leng=len(input_list)*1.0
         sov=sum([i<cap_runtime for i in input_list])
         time=sum(input_list)
         return sov/leng,time/leng
 
+    #return solve percentage, avg solved time
+    def solve_perc_avg_time(self,input_list,cap_runtime):
+        leng=len(input_list)*1.0
+        sov=[i for i in input_list if i<cap_runtime ]
+        if len(sov)==0:
+            return 0,cap_runtime
+        return sov/leng,float(sum(sov))/len(sov)
 
     #input: list of runtime, time_each,total_time
     #for example [10,3,13], 4, 20
@@ -104,11 +111,13 @@ class interleave_class():
                                 si,sj,sa,sb=str(i),str(j),str(a),str(b)
                                 #print(si,sj,sa,sb,s,t)
                                 allfour.append((s,t,'-'.join([si,sj,sa,sb])))
-            allfour=sorted(allfour)
-            #time, best result and order in the time
+            allfour=sorted(allfour,key=lambda xtup : xtup[1], reverse= True) #time reversed
+            allfour=sorted(allfour) #solving sort
+            #solving, avg time, best result and order in the time
             s,t,sched=allfour[-1]
             allbest.append((s,t,sched,time_each))
-        allbest=sorted(allbest)
+        allbest=sorted(allbest,key=lambda xtup : xtup[1], reverse= True)  #time reversed
+        allbest=sorted(allbest) #solving sort
         return allbest[-1]
 
 
@@ -132,9 +141,11 @@ class interleave_class():
                                 si,sj,sa=str(i),str(j),str(a)
                                 allthree.append((s,t,'-'.join([si,sj,sa])))
 
-            allthree=sorted(allthree)
+            allthree=sorted(allthree,key=lambda xtup : xtup[1], reverse= True) #time reversed
+            allthree=sorted(allthree)#solving sort
             s,t,sched=allthree[-1]
             allbest.append((s,t,sched,time_each))
+        allbest=sorted(allbest,key=lambda xtup : xtup[1], reverse= True)  #time reversed
         allbest=sorted(allbest)
         return allbest[-1]
 
@@ -155,11 +166,15 @@ class interleave_class():
                                 si,sj=str(i),str(j)
                                 allret.append((s,t,'-'.join([si,sj])))
 
+            allret=sorted(allret,key=lambda xtup : xtup[1], reverse= True) #time reversed
             allret=sorted(allret)
             s,t,sched=allret[-1]
             allbest.append((s,t,sched,time_each))
+        allbest=sorted(allbest,key=lambda xtup : xtup[1], reverse= True)  #time reversed
         allbest=sorted(allbest)
         return allbest[-1]    
+
+
 
 
 def savetofile(fold,cont):
@@ -367,7 +382,7 @@ if __name__ == "__main__":
                 best=s,st,interl,time,performance_folder_group
                 allresults.append(best)
                 #savetofile(interleave_out_folder,best)
-
+    allresults=sorted(allresults,key=lambda xtup : xtup[1], reverse= True) #time reversed
     allresults=sorted(allresults)            
     bestresult=allresults[-1]
     savetofile(interleave_out_folder,bestresult)
