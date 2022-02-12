@@ -2,7 +2,7 @@ import clingo
 import constants
 from ast_wrappers.variable import Variable
 232
-111
+4444
 
 def merge_dictionaries(dictionary1, dictionary2):
     """
