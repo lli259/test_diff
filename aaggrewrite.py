@@ -1,7 +1,7 @@
 import clingo, argparse, sys, json, time,os
 import constants
 from transformer import Transformer
-
+b1-a
 
 def define_args(arg_parser):
     """Defines the arguments for this program, the AAgg"""
