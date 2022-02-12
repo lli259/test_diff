@@ -1,7 +1,7 @@
 import clingo
 import constants
 from ast_wrappers.variable import Variable
-
+111
 
 def merge_dictionaries(dictionary1, dictionary2):
     """
